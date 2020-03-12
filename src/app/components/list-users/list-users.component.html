@@ -1,0 +1,48 @@
+<div class="container">
+
+    <h1 class="mt-5">{{title}}</h1>
+
+    <table class="table mt-3">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Email</th>
+                <th scope="col" class="text-right">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios; let i = index">
+                <th scope="row">{{ i + 1}}</th>
+                <td>{{ usuario.name }}</td>
+                <td>{{ usuario.surname }}</td>
+                <td>{{ usuario.email}}</td>
+                <td class="text-right w120">
+                    <a type="button" [routerLink]="['/user', usuario._id]" routerLinkActive="router-link-active" class="btn btn-outline-success mr-1">Editar</a>
+                    <a type="button" class="btn btn-outline-danger" data-toggle="modal" href="#exampleModal-{{usuario._id}}">Eliminar</a>
+
+                    <!-- /////MODAL//// -->
+                    <div class="modal fade" id="exampleModal-{{usuario._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">¿Esta seguro de eliminar el usuario <strong>{{usuario.email}}</strong>?</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="button" class="btn btn-danger" (click)="deleteUser(usuario._id)" data-dismiss="modal">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- /////MODAL//// -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="col-lg-6">
+        <h1> {{ title }} </h1>
+        <div class="alert alert-success" *ngIf="status == 'success'"> Registro completado correctamente,
+            <a [routerLink]="['/login']">identificate aquí</a>
+        </div>
+        <div class="alert alert-danger" *ngIf="status == 'error'">No te has registrado correctamente!
+        </div>
+        <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input type="text" #name="ngModel" [(ngModel)]="user.name" class="form-control" name="name" required>
+                <span class="text-danger" *ngIf="!name.valid && name.touched">
+                    El nombre es obligatorio
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Apellido</label>
+                <input type="text" #surname="ngModel" [(ngModel)]="user.surname" class="form-control" name="surname" required>
+                <span class="text-danger" *ngIf="!surname.valid && surname.touched">
+                    El apellido es obligatorio
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" name="email" required>
+                <span class="text-danger" *ngIf="!email.valid && email.touched">
+                    El email es obligatorio
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Password</label>
+                <input type="password" #password="ngModel" [(ngModel)]="user.password" class="form-control" name="password" required>
+                <span class="text-danger" *ngIf="!password.valid && password.touched">
+                   La contraseña es obligatoria
+                </span>
+            </div>
+            <button type="submit" class="btn btn-info" [disabled]="!registerForm.form.valid">Registrar</button>
+        </form>
+    </div>
+</div>
