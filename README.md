@@ -2,26 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
 
-## Development server
+## Servicios 
+En el directorio "AngularAuth/src/app/services" se encuentran los archivos para conectar al API 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+-El archivo Global.ts se encuentra la dirección del servidor
+-El archivo Authentication.service.ts se encuentra la logica para el procedimiento de loggueo 
+-El archivo Usuarios.service.ts se encuentra las api para el mantenimiento de usuarios (CRUD).
 
-## Code scaffolding
+## Componentes
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+En el directorio AngularAuth/src/app/components estan ubicados todos los componentes de la aplicacion. Login, Register, Listar Usuarios, Editar Usuario.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
